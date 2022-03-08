@@ -31,15 +31,13 @@ if alpha_length <= alphabets_large.length && alpha_length <= alphabets_small.len
     flag = false
     File.readlines('passwords1.csv').each { |line| flag = password == line }
 
-    if flag == false
-      pass_file = File.new('passwords1.csv', 'a')
-      pass_file.puts(password)
-      pass_file.close
+    return puts 'Password already exist in record!!' if flag
 
-      puts 'Password Generated And save in file successfully'
-    else
-      puts 'Password already exist in record!!'
-    end
+    pass_file = File.new('passwords1.csv', 'a')
+    pass_file.puts(password)
+    pass_file.close
+
+    puts 'Password Generated And save in file successfully'
   else
     puts 'The Length of Password should be greater than equal to 7'
   end
